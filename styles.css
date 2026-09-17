@@ -333,3 +333,32 @@ footer .cta-row { margin-top: 16px; }
   color: var(--muted);
   margin: 14px 0 0;
 }
+
+
+/* Task294 trust layer */
+.chooser { display: grid; gap: 10px; margin-top: 14px; }
+.chooser a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.15s ease;
+}
+.chooser a.card:hover { border-color: var(--accent); }
+.chooser .card h3 { color: var(--text); margin-bottom: 4px; }
+.examples-above {
+  margin: 0 0 18px;
+  padding-left: 1.15em;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.examples-above li { margin-bottom: 6px; }
+.access-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 12px;
+}
+.who-runs .card p { margin: 0; color: var(--muted); }

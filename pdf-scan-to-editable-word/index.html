@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF/Scan → Editable Word — Sample Conversion | QuietForgeTools</title>
+  <meta name="description" content="Demonstration: synthetic PDF/scan converted to editable Word (.docx) with a local open-source workflow. Not client work. QuietForgeTools capability proof." />
+  <link rel="canonical" href="https://mamonasr789-png.github.io/quietforgetools-wp-maintenance/pdf-scan-to-editable-word/" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .demo-badge { display:inline-block; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; border-radius:999px; padding:6px 12px; font-size:0.85rem; font-weight:600; margin-bottom:12px; }
+    .preview-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    @media (max-width:800px){ .preview-grid { grid-template-columns:1fr; } }
+    .preview-card img { width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px; background:#fff; }
+    .converted-box { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px; max-height:520px; overflow:auto; font-size:0.92rem; }
+    .converted-box table { width:100%; border-collapse:collapse; margin:10px 0; font-size:0.85rem; }
+    .converted-box th, .converted-box td { border:1px solid #d1d5db; padding:6px 8px; text-align:left; }
+    .converted-box h1, .converted-box h2 { margin:0.4em 0; }
+    .disclosure { background:#fffbeb; border:1px solid #fcd34d; border-radius:8px; padding:12px 14px; margin:14px 0; }
+    .file-links a { margin-right:12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand"><a href="https://mamonasr789-png.github.io/quietforgetools/"><span>QuietForgeTools</span></a> · Capability demo</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div class="demo-badge">Capability proof · not a priced offer</div>
+      <h1>PDF/Scan → Editable Word — Sample Conversion</h1>
+      <div class="disclosure">
+        <strong>Demonstration using a synthetic sample, not client work.</strong>
+        Fake company names and invented invoice content only. No buyer files were used.
+      </div>
+      <p class="lead">
+        Local open-source workflow: detect digital vs scan → extract (text layer or Tesseract OCR) →
+        reconstruct editable <strong style="color:var(--text)">.docx</strong> → flag uncertain OCR for manual checks.
+        No paid OCR/API in this demo.
+      </p>
+      <p class="file-links fine">
+        <a href="assets/sample-before.pdf">Download sample-before.pdf</a>
+        <a href="assets/sample-after.docx">Download sample-after.docx</a>
+      </p>
+    </div>
+
+    <section id="preview">
+      <div class="wrap">
+        <h2>Before / after</h2>
+        <div class="preview-grid">
+          <div class="preview-card card">
+            <div class="tag">Source PDF</div>
+            <h3>Synthetic invoice (digital PDF)</h3>
+            <img src="assets/sample-before-preview.png" alt="Preview of synthetic invoice PDF used as conversion source" />
+          </div>
+          <div class="preview-card card">
+            <div class="tag">Converted DOCX (HTML preview)</div>
+            <h3>Editable Word structure</h3>
+            <div class="converted-box" id="converted-preview">Loading preview…</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="preserved">
+      <div class="wrap">
+        <h2>What was preserved</h2>
+        <div class="grid two">
+          <div class="card">
+            <div class="tag">Structure</div>
+            <h3>Headings &amp; paragraphs</h3>
+            <p>Document title and section labels become editable Word headings/paragraphs.</p>
+          </div>
+          <div class="card">
+            <div class="tag">Table</div>
+            <h3>Line-item table</h3>
+            <p>Invoice line items reconstructed as an editable Word table (digital path).</p>
+          </div>
+          <div class="card">
+            <div class="tag">Data</div>
+            <h3>Dates, totals, references</h3>
+            <p>Invoice number, dates, VAT figures, and bank references carried into the DOCX.</p>
+          </div>
+          <div class="card">
+            <div class="tag">Integrity</div>
+            <h3>No invented passages</h3>
+            <p>Unreadable or low-confidence OCR is flagged for manual verification rather than guessed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="limits">
+      <div class="wrap">
+        <h2>Limitations (honest)</h2>
+        <div class="card">
+          <ul>
+            <li>Not a claim of perfect accuracy on every file — ordinary clean digital text did well on our synthetic corpus; scans need a human QA pass.</li>
+            <li>Handwriting, complex magazines, equations, and unreadable scans are out of v1 scope.</li>
+            <li>Scan/image-only PDFs may keep table text as paragraphs (re-form the table manually if needed).</li>
+            <li>Layout is rebuilt for editability, not pixel-perfect visual cloning.</li>
+            <li>This page is a capability demonstration only — no price, checkout, or paid service landing.</li>
+          </ul>
+        </div>
+        <p class="fine" style="margin-top:14px">Related WordPress maintenance tools: <a href="../">Update &amp; Safety Check</a> · <a href="../emergency-wordpress-repair/">Emergency Repair</a> · <a href="../quick-fix/">Quick Fix</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>QuietForgeTools · PDF/Scan → Editable Word sample · synthetic demonstration</p>
+    </div>
+  </footer>
+
+  <script>
+    fetch('assets/sample-after-preview.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('converted-preview').innerHTML = html; })
+      .catch(() => { document.getElementById('converted-preview').textContent = 'Preview unavailable.'; });
+  </script>
+</body>
+</html>
